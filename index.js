@@ -12,7 +12,7 @@ app.use('/users', usersRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}`));
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') 
 
 const url = 'mongodb+srv://thuytrang:trang123@cluster0.eqrr5wa.mongodb.net/?retryWrites=true&w=majority';
 
