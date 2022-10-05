@@ -1,4 +1,5 @@
 const express = require('express');
+const { model } = require('mongoose');
 const Model = require('../model/model');
 const router = express.Router();
 
@@ -40,3 +41,30 @@ router.get('/getOne/:id', async (req, res) => {
     }
 })
 module.exports = router;
+//Push method
+router.patch('/update/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const update = req.body;
+        const option = {new:true};
+
+        const data = await Model.findByIdAndUpdate(id,update,option);
+        res.send(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+//Delete method
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const data = await Model.findByIdAndDelete(id);
+        res.send('Finish delete')
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+
+})
