@@ -11,16 +11,16 @@ module.exports = function(app) {
   });
 
 app.post(
-    "/api/auth/register", function(req,res){
+    "/api/auth/register",
         [
             verifyRegister.checkDuplicateUsernameOrEmail,
             verifyRegister.checkRolesExisted
           ],
           controller.register
-    }
+    
   );
 
-app.post("/api/auth/login",function(req,res){
+app.post("/api/auth/login",
     controller.signin
-} );
+ );
 };

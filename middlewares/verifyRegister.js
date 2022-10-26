@@ -2,7 +2,7 @@
 //– check if roles in the request is legal or not
 
 const db= require("../model");
-const ROLES = db.role;
+const ROLES = db.ROLES;
 const User = db.user;
 checkDuplicateUsernameOrEmail = (req, res, next) => {
     // Username

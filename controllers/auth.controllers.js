@@ -25,14 +25,14 @@ exports.register = (req, res) => {
           },
           (err, roles) => {
             if (err) {
-              res.status(500).send({ message: "error" });
+              res.status(500).send({ message: err});
               return;
             }
   
             user.roles = roles.map(role => role._id);
             user.save(err => {
               if (err) {
-                res.status(500).send({ message: "error" });
+                res.status(500).send({ message: err });
                 return;
               }
   
@@ -43,14 +43,14 @@ exports.register = (req, res) => {
       } else {
         Role.findOne({ name: "user" }, (err, role) => {
           if (err) {
-            res.status(500).send({ message: "error" });
+            res.status(500).send({ message: err });
             return;
           }
   
           user.roles = [role._id];
           user.save(err => {
             if (err) {
-              res.status(500).send({ message: "error"});
+              res.status(500).send({ message: err});
               return;
             }
   
